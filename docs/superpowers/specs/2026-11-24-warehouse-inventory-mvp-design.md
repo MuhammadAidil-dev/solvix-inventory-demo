@@ -29,17 +29,17 @@ Navigasi utama menghubungkan keempat layar. Jumlah stok dan peringatan stok rend
 
 **Barang** menyimpan ID, kode unik, nama, kategori, satuan dasar, daftar satuan kemasan beserta rasio konversi, dan batas stok minimum dalam satuan dasar. Barang tanpa kemasan tambahan tetap valid. Satuan dasar tidak dapat diubah setelah barang memiliki transaksi. Perubahan rasio konversi hanya berlaku untuk transaksi baru.
 
-**Transaksi** menyimpan ID, ID barang, jenis transaksi, waktu, jumlah dan satuan yang dimasukkan pengguna, jumlah hasil konversi dalam satuan dasar, serta catatan. Koreksi mencatat selisih antara stok saat ini dan jumlah fisik yang dimasukkan pengguna. Stok awal data contoh juga dicatat sebagai transaksi agar asal jumlah stok terlihat di riwayat.
+**Transaksi** menyimpan ID, ID barang, jenis transaksi, waktu, jumlah dan satuan yang dimasukkan pengguna, jumlah hasil konversi dalam satuan dasar, serta catatan. Koreksi stok opname menerima jumlah fisik dalam satuan dasar. Sistem menghitung padanan satuan kemasan secara otomatis, menyimpan rinciannya beserta rasio konversi, lalu menghitung selisih terhadap stok tercatat. Stok awal data contoh juga dicatat sebagai transaksi agar asal jumlah stok terlihat di riwayat.
 
 Stok suatu barang adalah jumlah seluruh perubahan stoknya dalam satuan dasar. Barang masuk menambah stok. Barang keluar mengurangi stok. Koreksi menambah atau mengurangi stok sesuai selisih. Total stok dihitung dari transaksi, bukan disimpan sebagai nilai terpisah yang dapat berbeda dari riwayat.
 
-Contoh: satuan dasar air mineral adalah botol, dan 1 dus = 24 botol. Barang masuk 2 dus menambah stok 48 botol. Daftar stok dapat menampilkan jumlah dalam botol dan padanannya dalam dus.
+Contoh: satuan dasar air mineral adalah botol, dan 1 dus = 24 botol. Barang masuk 2 dus menambah stok 48 botol. Daftar stok dapat menampilkan jumlah dalam botol dan padanannya dalam dus. Untuk opname, input 53 botol otomatis ditampilkan sebagai 2 dus + 5 botol.
 
 ## Aturan validasi
 
 - Kode barang wajib diisi dan unik. Nama, kategori, dan satuan dasar wajib diisi. Batas stok minimum tidak boleh negatif.
 - Rasio konversi harus lebih besar dari nol. Satuan kemasan tidak boleh berulang pada barang yang sama.
-- Jumlah barang masuk dan keluar harus lebih besar dari nol. Jumlah fisik untuk koreksi boleh nol, tetapi koreksi tanpa perubahan stok ditolak. Hasil konversi harus valid.
+- Jumlah barang masuk dan keluar harus lebih besar dari nol. Jumlah opname dalam satuan dasar boleh nol. Koreksi tanpa perubahan stok ditolak. Hasil konversi kemasan harus valid.
 - Barang keluar ditolak jika stok tidak cukup. Koreksi tidak boleh menghasilkan stok negatif.
 - Kesalahan input tampil di form. Transaksi yang ditolak tidak mengubah data atau riwayat.
 - Transaksi yang sudah dicatat tidak diedit atau dihapus pada MVP. Kesalahan stok diperbaiki lewat koreksi agar riwayat tetap jelas.

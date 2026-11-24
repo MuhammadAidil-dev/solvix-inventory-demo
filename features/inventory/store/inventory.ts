@@ -3,7 +3,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { createDemoData } from "../lib/demo-data";
-import { convertToBase, getStock } from "../lib/stock";
+import { convertToBase, decomposeStock, getStock } from "../lib/stock";
 import type { InventoryItem, MovementInput, NewItemInput, StockTransaction } from "../types/inventory";
 
 interface InventoryState {
@@ -78,7 +78,7 @@ export const useInventoryStore = create<InventoryState>()(
           throw new Error("Satuan dasar tidak dapat diubah setelah ada transaksi.");
         }
         const clean = { ...input, code: input.code.trim(), name: input.name.trim(), baseUnit: input.baseUnit.trim(), packages: input.packages.map((entry) => ({ ...entry, unit: entry.unit.trim() })) };
-        validateItem(clean, get().items, id);
+        validateItem(clean, get().items, get().categories, id);
         set((state) => ({ items: state.items.map((item) => item.id === id ? { ...item, ...clean } : item) }));
       },
       recordMovement: (input) => {
@@ -95,13 +95,15 @@ export const useInventoryStore = create<InventoryState>()(
       correctStock: (itemId, physicalStock, date, note) => {
         const item = get().items.find((entry) => entry.id === itemId);
         if (!item) throw new Error("Pilih barang yang tersedia.");
-        if (!Number.isFinite(physicalStock) || physicalStock < 0) throw new Error("Stok fisik tidak boleh negatif.");
+        if (!Number.isFinite(physicalStock) || physicalStock < 0) throw new Error("Jumlah stok fisik tidak boleh negatif.");
+        const unitBreakdown = decomposeStock(item, physicalStock);
         const currentStock = getStock(itemId, get().transactions);
         const deltaBase = physicalStock - currentStock;
-        if (deltaBase === 0) throw new Error("Stok fisik sama dengan stok tercatat.");
+        if (Math.abs(deltaBase) < 1e-9) throw new Error("Stok fisik sama dengan stok tercatat.");
         const transaction: StockTransaction = {
           id: makeId(), itemId, kind: "adjustment", date, quantity: physicalStock,
           unit: item.baseUnit, quantityBase: physicalStock, deltaBase, note: note.trim(),
+          unitBreakdown,
         };
         set((state) => ({ transactions: [transaction, ...state.transactions] }));
       },

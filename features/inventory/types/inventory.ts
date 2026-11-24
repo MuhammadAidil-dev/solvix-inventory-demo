@@ -6,6 +6,12 @@ export interface UnitPackage {
   ratio: number;
 }
 
+export interface UnitCountSnapshot {
+  unit: string;
+  quantity: number;
+  ratio: number;
+}
+
 export interface InventoryItem {
   id: string;
   code: string;
@@ -27,6 +33,7 @@ export interface StockTransaction {
   quantityBase: number;
   deltaBase: number;
   note: string;
+  unitBreakdown?: UnitCountSnapshot[];
 }
 
 export interface NewItemInput {
