@@ -1,6 +1,8 @@
-import type { InventoryItem, StockTransaction } from "../types/inventory";
+import type { InventoryItem, ItemCategory, StockTransaction } from "../types/inventory";
 
-export function createDemoData(): { items: InventoryItem[]; transactions: StockTransaction[] } {
+export const DEFAULT_ITEM_CATEGORIES: ItemCategory[] = ["Komoditas", "Bahan bangunan", "Lainnya"];
+
+export function createDemoData(): { items: InventoryItem[]; transactions: StockTransaction[]; categories: ItemCategory[] } {
   const now = Date.now();
   const items: InventoryItem[] = [
     { id: "item-rice", code: "KMD-001", name: "Beras premium", category: "Komoditas", baseUnit: "kg", packages: [{ unit: "karung", ratio: 25 }], minimumStock: 100, createdAt: new Date(now).toISOString() },
@@ -22,5 +24,5 @@ export function createDemoData(): { items: InventoryItem[]; transactions: StockT
     deltaBase: openingStocks[index],
     note: "Stok awal demo",
   }));
-  return { items, transactions };
+  return { items, transactions, categories: [...DEFAULT_ITEM_CATEGORIES] };
 }

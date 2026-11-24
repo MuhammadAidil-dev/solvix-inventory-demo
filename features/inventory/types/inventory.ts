@@ -1,4 +1,4 @@
-export type ItemCategory = "Komoditas" | "Bahan bangunan" | "Lainnya";
+export type ItemCategory = string;
 export type MovementKind = "in" | "out" | "adjustment" | "initial";
 
 export interface UnitPackage {

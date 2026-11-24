@@ -9,7 +9,9 @@ import type { InventoryItem, MovementInput, NewItemInput, StockTransaction } fro
 interface InventoryState {
   items: InventoryItem[];
   transactions: StockTransaction[];
+  categories: string[];
   hasHydrated: boolean;
+  addCategory: (name: string) => string;
   addItem: (input: NewItemInput) => void;
   updateItem: (id: string, input: NewItemInput) => void;
   recordMovement: (input: MovementInput) => void;
@@ -21,9 +23,12 @@ interface InventoryState {
 const initialData = createDemoData();
 const makeId = () => globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
 
-function validateItem(input: NewItemInput, items: InventoryItem[], excludeId?: string): void {
+function validateItem(input: NewItemInput, items: InventoryItem[], categories: string[], excludeId?: string): void {
   if (!input.code.trim() || !input.name.trim() || !input.baseUnit.trim()) {
     throw new Error("Kode, nama, dan satuan dasar wajib diisi.");
+  }
+  if (!categories.some((category) => category.toLocaleLowerCase() === input.category.trim().toLocaleLowerCase())) {
+    throw new Error("Pilih kategori yang tersedia.");
   }
   if (!Number.isFinite(input.minimumStock) || input.minimumStock < 0) {
     throw new Error("Batas stok minimum tidak boleh negatif.");
@@ -50,9 +55,19 @@ export const useInventoryStore = create<InventoryState>()(
       ...initialData,
       hasHydrated: false,
       setHasHydrated: (value) => set({ hasHydrated: value }),
+      addCategory: (name) => {
+        const category = name.trim();
+        if (!category) throw new Error("Nama kategori wajib diisi.");
+        if (category.length > 40) throw new Error("Nama kategori maksimal 40 karakter.");
+        if (get().categories.some((entry) => entry.toLocaleLowerCase() === category.toLocaleLowerCase())) {
+          throw new Error("Kategori dengan nama tersebut sudah ada.");
+        }
+        set((state) => ({ categories: [...state.categories, category] }));
+        return category;
+      },
       addItem: (input) => {
         const clean = { ...input, code: input.code.trim(), name: input.name.trim(), baseUnit: input.baseUnit.trim(), packages: input.packages.map((entry) => ({ ...entry, unit: entry.unit.trim() })) };
-        validateItem(clean, get().items);
+        validateItem(clean, get().items, get().categories);
         set((state) => ({ items: [...state.items, { ...clean, id: makeId(), createdAt: new Date().toISOString() }] }));
       },
       updateItem: (id, input) => {
@@ -96,7 +111,7 @@ export const useInventoryStore = create<InventoryState>()(
       name: "inventory-demo-v1",
       storage: createJSONStorage(() => localStorage),
       skipHydration: true,
-      partialize: (state) => ({ items: state.items, transactions: state.transactions }) as InventoryState,
+      partialize: (state) => ({ items: state.items, transactions: state.transactions, categories: state.categories }) as InventoryState,
       onRehydrateStorage: () => (state) => state?.setHasHydrated(true),
     },
   ),
