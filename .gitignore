@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+
+# build outputs
+.next/
+out/
+build/
+dist/
+
+# test & coverage
+coverage/
+
+# logs
+logs/
+*.log
+npm-debug.log*
+
+# environment local overrides (template .env.* tetap ikut scaffold via CLI, local tidak)
+.env*.local
+.env.*
+.env
+!.env.example
+
+# os / editor
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
