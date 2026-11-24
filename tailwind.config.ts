@@ -9,7 +9,12 @@ const config: Config = {
     "./lib/**/*.{ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        xs: ["0.8125rem", { lineHeight: "1.4" }],
+        sm: ["0.9375rem", { lineHeight: "1.5" }],
+      },
+    },
   },
   plugins: [],
 };

@@ -1,3 +1,3 @@
 export default function Loading() {
-  return <p className="text-sm text-zinc-500">Memuat…</p>;
+  return <p className="text-sm text-[#536985]">Memuat…</p>;
 }

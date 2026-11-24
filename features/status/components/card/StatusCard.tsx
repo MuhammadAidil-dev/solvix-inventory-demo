@@ -6,7 +6,7 @@ import { useHealth } from "../../hooks/hooks";
 export function StatusCard() {
   const { data, loading, error } = useHealth();
 
-  if (loading) return <p className="text-sm text-zinc-500">Memeriksa API…</p>;
+  if (loading) return <p className="text-sm text-[#536985]">Memeriksa API…</p>;
 
   return (
     <div className="space-y-3">
