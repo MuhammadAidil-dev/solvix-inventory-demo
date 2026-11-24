@@ -29,3 +29,8 @@
 ## Penggunaan skill
 
 - Saat memakai workflow atau skill Superpowers, lewati skill `writing-plans`.
+
+## Git
+
+- Jangan membuat commit secara otomatis.
+- Buat commit hanya jika pengguna memintanya secara eksplisit. Sampai saat itu, biarkan perubahan tanpa commit agar dapat ditinjau.
