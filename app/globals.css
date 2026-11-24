@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --navy: #0d2340;
+  --blue: #1767c2;
+  --blue-soft: #eaf2fc;
+  --blue-pale: #f5f8fc;
+  --blue-line: #d8e3f1;
+  --text-muted: #536985;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+::selection {
+  color: #ffffff;
+  background: #1767c2;
+}

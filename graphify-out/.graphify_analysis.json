@@ -1,0 +1,315 @@
+{
+  "communities": {
+    "0": [
+      "eslint_config",
+      "package",
+      "package_dependencies",
+      "package_dependencies_next",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_zod",
+      "package_dependencies_zustand",
+      "package_engines",
+      "package_engines_node",
+      "package_name",
+      "package_private",
+      "package_version",
+      "ref_autoprefixer",
+      "ref_eslint",
+      "ref_eslint_config_next",
+      "ref_jsdom",
+      "ref_postcss",
+      "ref_prettier",
+      "ref_react_dom",
+      "ref_tailwindcss",
+      "ref_testing_library_dom",
+      "ref_testing_library_react",
+      "ref_types_node",
+      "ref_types_react",
+      "ref_types_react_dom",
+      "ref_typescript",
+      "ref_vitest",
+      "tailwind_config",
+      "tailwind_config_config",
+      "vitest_config"
+    ],
+    "1": [
+      "lib_api_error",
+      "lib_api_error_apierror",
+      "lib_api_error_apierror_constructor",
+      "lib_config",
+      "lib_config_getapibaseurl",
+      "lib_config_request_timeout_ms",
+      "lib_fetcher",
+      "lib_fetcher_apiauth",
+      "lib_fetcher_apiserver",
+      "lib_fetcher_backendenvelope",
+      "lib_fetcher_joinurl",
+      "lib_fetcher_parsejsonsafe",
+      "lib_fetcher_redirecttologin",
+      "lib_fetcher_request",
+      "lib_fetcher_requestoptions",
+      "lib_fetcher_serverrequestoptions",
+      "lib_fetcher_tryrefresh",
+      "lib_tests_fetcher_test",
+      "lib_tests_fetcher_test_jsonresponse"
+    ],
+    "2": [
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "3": [
+      "package_devdependencies",
+      "package_devdependencies_autoprefixer",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_next",
+      "package_devdependencies_jsdom",
+      "package_devdependencies_postcss",
+      "package_devdependencies_prettier",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_testing_library_dom",
+      "package_devdependencies_testing_library_jest_dom",
+      "package_devdependencies_testing_library_react",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "package_devdependencies_vitest"
+    ],
+    "4": [
+      "app_login_page",
+      "app_login_page_loginpage",
+      "components_ui_button",
+      "components_ui_button_button",
+      "components_ui_button_props",
+      "components_ui_input",
+      "components_ui_input_input",
+      "components_ui_input_props",
+      "features_auth_components_form_loginform",
+      "features_auth_components_form_loginform_loginform",
+      "features_auth_hooks_hooks_uselogin",
+      "features_auth_schema_schema_loginschema",
+      "lib_utils",
+      "lib_utils_cn",
+      "ref_react"
+    ],
+    "5": [
+      "app_page",
+      "app_page_homepage",
+      "components_ui_toast",
+      "components_ui_toast_toast",
+      "features_status_components_card_statuscard",
+      "features_status_components_card_statuscard_statuscard",
+      "features_status_hooks_hooks",
+      "features_status_hooks_hooks_usehealth",
+      "features_status_schema_schema",
+      "features_status_schema_schema_health",
+      "features_status_schema_schema_healthschema",
+      "features_status_service_api",
+      "features_status_service_api_gethealth",
+      "lib_fetcher_apipublic",
+      "ref_zod"
+    ],
+    "6": [
+      "features_auth_hooks_hooks",
+      "features_auth_schema_schema",
+      "features_auth_schema_schema_logininput",
+      "features_auth_service_api",
+      "features_auth_service_api_loginapi",
+      "features_auth_service_api_loginresponse",
+      "features_auth_store_store",
+      "features_auth_store_store_loginstate",
+      "features_auth_store_store_useloginstore",
+      "ref_zustand",
+      "stores_auth",
+      "stores_auth_authstate",
+      "stores_auth_authstatus",
+      "stores_auth_authuser",
+      "stores_auth_useauthstore"
+    ],
+    "7": [
+      "app_globals",
+      "app_layout",
+      "app_layout_metadata",
+      "app_layout_rootlayout",
+      "proxy",
+      "proxy_config",
+      "proxy_protected_prefixes",
+      "proxy_proxy",
+      "ref_next"
+    ],
+    "8": [
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_start",
+      "package_scripts_test",
+      "package_scripts_test_watch",
+      "package_scripts_typecheck"
+    ],
+    "9": [
+      "next",
+      "next_config",
+      "next_config_nextconfig"
+    ],
+    "10": [
+      "postcss_config",
+      "postcss_config_config",
+      "postcss_load_config"
+    ],
+    "11": [
+      "app_error",
+      "app_error_error"
+    ],
+    "12": [
+      "app_loading",
+      "app_loading_loading"
+    ]
+  },
+  "cohesion": {
+    "0": 0.06666666666666667,
+    "1": 0.21637426900584794,
+    "2": 0.10526315789473684,
+    "3": 0.125,
+    "4": 0.23809523809523808,
+    "5": 0.22857142857142856,
+    "6": 0.26666666666666666,
+    "7": 0.2222222222222222,
+    "8": 0.25,
+    "9": 0.6666666666666666,
+    "10": 0.6666666666666666,
+    "11": 1.0,
+    "12": 1.0
+  },
+  "gods": [
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "lib_fetcher_request",
+      "label": "request()",
+      "degree": 9
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 8
+    },
+    {
+      "id": "lib_api_error_apierror",
+      "label": "ApiError",
+      "degree": 7
+    },
+    {
+      "id": "lib_fetcher_apipublic",
+      "label": "apiPublic()",
+      "degree": 7
+    },
+    {
+      "id": "lib_fetcher_apiauth",
+      "label": "apiAuth()",
+      "degree": 6
+    },
+    {
+      "id": "features_auth_schema_schema_logininput",
+      "label": "LoginInput",
+      "degree": 5
+    },
+    {
+      "id": "lib_utils_cn",
+      "label": "cn()",
+      "degree": 5
+    },
+    {
+      "id": "ref_next",
+      "label": "next",
+      "degree": 5
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "loginApi()",
+      "target": "apiPublic()",
+      "source_files": [
+        "features/auth/service/api.ts",
+        "lib/fetcher.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "Button()",
+      "target": "cn()",
+      "source_files": [
+        "components/ui/button.tsx",
+        "lib/utils.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "Input()",
+      "target": "cn()",
+      "source_files": [
+        "components/ui/input.tsx",
+        "lib/utils.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "LoginResponse",
+      "target": "AuthUser",
+      "source_files": [
+        "features/auth/service/api.ts",
+        "stores/auth.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "getHealth()",
+      "target": "apiPublic()",
+      "source_files": [
+        "features/status/service/api.ts",
+        "lib/fetcher.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}
